@@ -1,7 +1,9 @@
+using DevContabil.Web.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.UseUrls("http://*:5000");
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.ConfigureServices(builder.Configuration);
 
 var app = builder.Build();
 
