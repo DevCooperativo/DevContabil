@@ -7,6 +7,7 @@ public static class ServiceConfiguration
 {
     public static void ConfigureServices(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddHttpClient<IApiService, ApiService>();
+        services.AddHttpClient<ISicoobApiService, SicoobApiService>();
+        services.AddHttpClient<INFApiService, NFApiService>();
     }
 }

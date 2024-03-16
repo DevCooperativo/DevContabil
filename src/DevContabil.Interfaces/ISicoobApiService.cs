@@ -1,6 +1,6 @@
 ﻿namespace DevContabil.Interfaces;
 
-public interface IApiService
+public interface ISicoobApiService
 {
     string Get();
     Task<string> GetAsync();

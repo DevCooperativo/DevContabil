@@ -1,7 +1,7 @@
 using DevContabil.Web.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllersWithViews();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.ConfigureServices(builder.Configuration);
 

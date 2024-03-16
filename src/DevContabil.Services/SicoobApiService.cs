@@ -2,13 +2,13 @@
 
 namespace DevContabil.Services;
 
-public class ApiService : IApiService
+public class SicoobApiService : ISicoobApiService
 {
 
-    private readonly HttpClient _apiClient;
-    public ApiService(HttpClient apiClient)
+    private readonly HttpClient _sicoobApiClient;
+    public SicoobApiService(HttpClient sicoobApiClient)
     {
-        _apiClient = apiClient;
+        _sicoobApiClient = sicoobApiClient;
     }
     public string Get()
     {
@@ -26,7 +26,7 @@ public class ApiService : IApiService
         request.Headers.Add("client_id", "9b5e603e428cc477a2841e2683c92d21");
         request.Headers.Add("Authorization", "Bearer 1301865f-c6bc-38f3-9f49-666dbcfc59c3");
 
-        var response = await _apiClient.SendAsync(request);
+        var response = await _sicoobApiClient.SendAsync(request);
         var result = await response.Content.ReadAsStringAsync();
         return result;
     }
