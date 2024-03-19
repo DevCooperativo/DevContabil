@@ -89,12 +89,11 @@ public class NFApiService(HttpClient nfApiClient) : INFApiService
     #endregion
 
     #region PostNotaFiscalAsync
-    public async Task<string> PostNotaFiscalAsync(string companyId)
+    public async Task<string> PostNotaFiscalAsync(string companyId, string requestBody)
     {
-        string company_id = "1231312";
         var request = new HttpRequestMessage
         {
-            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{company_id}/serviceinvoices"),
+            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{companyId}/serviceinvoices"),
             Method = HttpMethod.Post
         };
 
@@ -113,17 +112,11 @@ public class NFApiService(HttpClient nfApiClient) : INFApiService
     #endregion
 
     #region DeleteNotaFiscalAsync
-    public async Task<string> DeleteNotaFiscalAsync()
+    public async Task<string> DeleteNotaFiscalAsync(string companyId, string id)
     {
-
-        string company_id = "1231312";
-
-        // id deve receber o caractere '/' antes do seu valor
-        string id = "1231312";
-
         var request = new HttpRequestMessage
         {
-            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{company_id}/serviceinvoices/{id}"),
+            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{companyId}/serviceinvoices/{id}"),
             Method = HttpMethod.Delete
         };
 
@@ -138,14 +131,11 @@ public class NFApiService(HttpClient nfApiClient) : INFApiService
     #endregion
 
     #region GetNotaFiscalByIdToPdfAsync
-    public async Task<string> GetNotaFiscalByIdToPdfAsync()
+    public async Task<string> GetNotaFiscalByIdToPdfAsync(string companyId, string id)
     {
-        string company_id = "1231312";
-        string id = "1231312";
-
         var request = new HttpRequestMessage
         {
-            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{company_id}/serviceinvoices/{id}/pdf"),
+            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{companyId}/serviceinvoices/{id}/pdf"),
             Method = HttpMethod.Get
         };
         request.Headers.Add("Accept", "*/*");
@@ -159,14 +149,12 @@ public class NFApiService(HttpClient nfApiClient) : INFApiService
     #endregion
 
     #region GetNotaFiscalByIdToXmlAsync
-    public async Task<string> GetNotaFiscalByIdToXmlAsync()
+    public async Task<string> GetNotaFiscalByIdToXmlAsync(string companyId, string id)
     {
-        string company_id = "1231312";
-        string id = "1231312";
 
         var request = new HttpRequestMessage
         {
-            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{company_id}/serviceinvoices/{id}/xml"),
+            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{companyId}/serviceinvoices/{id}/xml"),
             Method = HttpMethod.Get
         };
 
@@ -181,14 +169,12 @@ public class NFApiService(HttpClient nfApiClient) : INFApiService
     #endregion
 
     #region GetPessoaFisicaByIdAsync
-    public async Task<string> GetPessoaFisicaByIdAsync()
+    public async Task<string> GetPessoaFisicaByIdAsync(string companyId, string id)
     {
-        string company_id = "1231312";
-        string id = "1231312";
 
         var request = new HttpRequestMessage
         {
-            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{company_id}/naturalpeople/{id}"),
+            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{companyId}/naturalpeople/{id}"),
             Method = HttpMethod.Get
         };
 
@@ -203,13 +189,12 @@ public class NFApiService(HttpClient nfApiClient) : INFApiService
     #endregion
 
     #region GetAllPessoaFisicaAsync
-    public async Task<string> GetAllPessoasFisicasAsync()
+    public async Task<string> GetAllPessoaFisicaAsync(string companyId)
     {
-        string company_id = "1231312";
 
         var request = new HttpRequestMessage
         {
-            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{company_id}/naturalpeople"),
+            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{companyId}/naturalpeople"),
             Method = HttpMethod.Get
         };
 
@@ -224,14 +209,11 @@ public class NFApiService(HttpClient nfApiClient) : INFApiService
     #endregion
 
     #region GetPessoaJuridicaByIdAsync
-    public async Task<string> GetPessoaJuridicaByIdAsync()
+    public async Task<string> GetPessoaJuridicaByIdAsync(string companyId, string id)
     {
-        string company_id = "1231312";
-        string id = "1231312";
-
         var request = new HttpRequestMessage
         {
-            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{company_id}/legalpeople/{id}"),
+            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{companyId}/legalpeople/{id}"),
             Method = HttpMethod.Get
         };
 
@@ -246,13 +228,11 @@ public class NFApiService(HttpClient nfApiClient) : INFApiService
     #endregion
 
     #region GetAllPessoaJuridicaAsync
-    public async Task<string> GetAllPessoaJuridicaAsync()
+    public async Task<string> GetAllPessoaJuridicaAsync(string companyId)
     {
-        string company_id = "1231312";
-
         var request = new HttpRequestMessage
         {
-            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{company_id}/legalpeople"),
+            RequestUri = new Uri($"https://api.nfe.io/v1/companies/{companyId}/legalpeople"),
             Method = HttpMethod.Get
         };
 
